@@ -17,7 +17,8 @@ public class ReviewService {
 
 
   public Review createReview(String reviewBody, String imdbId) {
-    Review review = reviewRepository.insert(new Review(reviewBody, LocalDateTime.now(), LocalDateTime.now()));
+    Review review = reviewRepository.insert(new Review(reviewBody, LocalDateTime.now(),
+            LocalDateTime.now()));
 
     mongoTemplate.update(Movie.class)
             .matching(Criteria.where("imdbId").is(imdbId))

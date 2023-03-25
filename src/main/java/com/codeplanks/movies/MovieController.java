@@ -1,6 +1,5 @@
 package com.codeplanks.movies;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +19,10 @@ public class MovieController {
     return new ResponseEntity<List<Movie>>(movieService.allMovies(), HttpStatus.OK);
   }
 
-
-
   @GetMapping("/{imdbId}")
-  public  ResponseEntity<Optional<Movie>> getSingleMovieByImdbId(@PathVariable String imdbId) {
-    return new ResponseEntity<Optional<Movie>>(movieService.singleMovieByImdbId(imdbId), HttpStatus.OK);
+  public ResponseEntity<Optional<Movie>> getSingleMovieByImdbId(@PathVariable String imdbId) {
+    return new ResponseEntity<Optional<Movie>>(movieService.singleMovieByImdbId(imdbId),
+            HttpStatus.OK);
   }
 
 }
