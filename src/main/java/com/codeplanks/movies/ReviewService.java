@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class ReviewService {
@@ -26,4 +27,9 @@ public class ReviewService {
             .first();
     return review;
   }
+
+  public List<Review> allReviews() {
+    return reviewRepository.findAll();
+  }
+
 }
